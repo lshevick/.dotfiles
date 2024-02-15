@@ -12,6 +12,7 @@
           - stow
           - fzf
           - vim
+          - node
         state: present
 
     - name: clone dotfiles
@@ -25,7 +26,5 @@
       ansible.builtin.shell:
         chdir: ~/.dotfiles
         cmd: "stow . --t {{lookup('env', 'HOME')}} --verbose=2"
-        register: result
-        changed_when: 'result.stderr is search("LINK: ")'
 
 
