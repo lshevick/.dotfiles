@@ -1,5 +1,6 @@
 - name: update and get
   hosts: hosts
+  become: true
   tasks:
     - name: Install packages with apt
       become: yes
@@ -9,14 +10,8 @@
           - neofetch
           - fish
           - stow
+          - fzf
         state: present
-
-    - name: Clone and run fzf Install
-      ansible.builtin.git:
-        repo: https://github.com/junegunn/fzf.git
-        dest: "{{ansible_env.HOME}}"/.fzf
-        clone: true
-        depth: 1
 
     - name: clone dotfiles
       ansible.builtin.git:
