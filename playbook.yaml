@@ -13,6 +13,7 @@
           - fzf
           - vim
           - node
+          - curl
         state: present
 
     - name: clone dotfiles
