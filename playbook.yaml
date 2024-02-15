@@ -1,0 +1,35 @@
+- name: update and get
+  hosts: hosts
+  tasks:
+    - name: Install packages with apt
+      become: yes
+      ansible.builtin.apt:
+        name:
+          - git
+          - neofetch
+          - fish
+          - stow
+        state: present
+
+    - name: Clone and run fzf Install
+      ansible.builtin.git:
+        repo: https://github.com/junegunn/fzf.git
+        dest: "{{ansible_env.HOME}}"/.fzf
+        clone: true
+        depth: 1
+
+    - name: clone dotfiles
+      ansible.builtin.git:
+        repo: https://github.com/lshevick/.dotfiles.git
+        dest: "{{ansible_env.HOME}}"/.dotfiles
+        clone: true
+        depth: 1
+
+    - name: run stow 
+      ansible.builtin.shell:
+        chdir: ~/.dotfiles
+        cmd: "stow . --t {{ansible_env.HOME}} --verbose=2"
+        register: result
+        changed_when: 'result.stderr is search("LINK: ")'
+
+
