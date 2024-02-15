@@ -22,6 +22,7 @@
         dest: "{{lookup('env', 'HOME')}}/.local/share/git/oh-my-fish"
 
     - name: isntall omf
+      become: true
       ansible.builtin.shell:
         cmd: "bin/install --offline --noninteractive --yes"
         executable: "/usr/bin/fish"

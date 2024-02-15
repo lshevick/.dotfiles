@@ -21,7 +21,6 @@ set t_Co=256
 set termguicolors
 set number
 set cursorline
-packadd! sonokai
 set rtp+=~/.fzf
 
 if has('termguicolors')
