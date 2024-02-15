@@ -25,7 +25,13 @@
 
     - name: run stow 
       ansible.builtin.shell:
-        chdir: ~/.dotfiles
+        chdir: "{{lookup('env', 'HOME')}}/.dotfiles"
         cmd: "stow ."
+
+    - name: set up omf
+      ansible.builtin.shell:
+        chdir: "{{lookup('env', 'HOMNE')}}"
+        cmd: "curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish"
+
 
 
