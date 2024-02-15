@@ -32,7 +32,7 @@ let g:sonokai_style = 'espresso'
 let g:sonokai_better_performance = 1
 let g:airline_theme = 'sonokai'
 colorscheme sonokai
-autocmd ColorScheme * hi Normal guibg=NONE ctermbg=NONE
+"autocmd ColorScheme * hi Normal guibg=NONE ctermbg=NONE
 
 
 set wildmenu
@@ -54,6 +54,9 @@ map <C-l> <C-w>l
 tnoremap <Esc> <C-w>:q!<CR>
 nnoremap <silent> <leader>e :Lexplore!<CR>
 nnoremap <silent> <leader>s :FZF<CR>
+nnoremap <silent> <leader>b :Git blame<CR>
+nnoremap <silent> <leader>j :ALENext<CR>
+nnoremap <silent> <leader>k :ALEPrevious<CR>
 nnoremap <silent> <c-c> :set hlsearch!<CR>
 nnoremap S :%s//g<Left><Left>
 nnoremap <leader>u :UndotreeToggle<CR>
