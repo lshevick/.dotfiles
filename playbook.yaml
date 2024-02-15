@@ -26,7 +26,7 @@
       ansible.builtin.shell:
         cmd: "bin/install --offline --noninteractive --yes"
         executable: "/usr/bin/fish"
-        chdir: "{{lookup('env', 'HOME')}}/local/share/git/oh-my-fish"
+        chdir: "{{lookup('env', 'HOME')}}/.local/share/git/oh-my-fish"
 
     - name: clone dotfiles
       ansible.builtin.git:
