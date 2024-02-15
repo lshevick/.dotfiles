@@ -16,14 +16,14 @@
     - name: clone dotfiles
       ansible.builtin.git:
         repo: https://github.com/lshevick/.dotfiles.git
-        dest: "{{ansible_env.HOME}}/.dotfiles"
+        dest: "{{lookup('env', 'HOME')}}/.dotfiles"
         clone: true
         depth: 1
 
     - name: run stow 
       ansible.builtin.shell:
         chdir: ~/.dotfiles
-        cmd: "stow . --t {{ansible_env.HOME}} --verbose=2"
+        cmd: "stow . --t {{lookup('env', 'HOME')}} --verbose=2"
         register: result
         changed_when: 'result.stderr is search("LINK: ")'
 
