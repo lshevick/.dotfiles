@@ -16,7 +16,7 @@
     - name: clone dotfiles
       ansible.builtin.git:
         repo: https://github.com/lshevick/.dotfiles.git
-        dest: "{{ansible_env.HOME}}"/.dotfiles
+        dest: "{{ansible_env.HOME}}/.dotfiles"
         clone: true
         depth: 1
 
