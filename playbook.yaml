@@ -21,7 +21,7 @@
         repo: 'https://github.com/oh-my-fish/oh-my-fish.git'
         dest: "{{lookup('env', 'HOME')}}/.local/share/git/oh-my-fish"
 
-    - name: isntall omf
+    - name: install omf
       become: true
       ansible.builtin.shell:
         cmd: "bin/install --offline --noninteractive --yes"
