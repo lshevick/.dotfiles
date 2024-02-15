@@ -1,5 +1,5 @@
 - name: update and get
-  hosts: local 
+  hosts: localhost 
   become: true
   tasks:
     - name: Install packages with apt
