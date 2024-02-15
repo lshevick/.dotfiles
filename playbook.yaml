@@ -26,6 +26,6 @@
     - name: run stow 
       ansible.builtin.shell:
         chdir: ~/.dotfiles
-        cmd: "stow . --t {{lookup('env', 'HOME')}} --verbose=2"
+        cmd: "stow ."
 
 
