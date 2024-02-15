@@ -1,3 +1,5 @@
 playbook.yaml
 README.md
 hosts
+\.git
+\.gitignore
