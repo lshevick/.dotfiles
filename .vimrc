@@ -51,7 +51,7 @@ map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 tnoremap <Esc> <C-w>:q!<CR>
-nnoremap <silent> <leader>e :Lexplore<CR>
+nnoremap <silent> <leader>e :Lexplore!<CR>
 nnoremap <silent> <leader>s :FZF<CR>
 nnoremap <silent> <c-c> :set hlsearch!<CR>
 nnoremap S :%s//g<Left><Left>
