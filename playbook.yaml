@@ -16,6 +16,17 @@
           - curl
         state: present
 
+    - name: get omf 
+      ansible.builtin.git:
+        repo: 'https://github.com/oh-my-fish/oh-my-fish.git'
+        dest: "{{lookup('env', 'HOME')}}/.local/share/git/oh-my-fish"
+
+    - name: isntall omf
+      ansible.builtin.shell:
+        cmd: "bin/install --offline --noninteractive --yes"
+        executable: "/usr/bin/fish"
+        chdir: "{{lookup('env', 'HOME')}}/local/share/git/oh-my-fish"
+
     - name: clone dotfiles
       ansible.builtin.git:
         repo: https://github.com/lshevick/.dotfiles.git
@@ -23,15 +34,15 @@
         clone: true
         depth: 1
 
+    - name: rm default bashrc 
+      ansible.builtin.shell:
+        chdir: "{{lookup('env', 'HOME')}}"
+        cmd: "rm .bashrc"
+          
     - name: run stow 
       ansible.builtin.shell:
         chdir: "{{lookup('env', 'HOME')}}/.dotfiles"
         cmd: "stow ."
-
-    - name: set up omf
-      ansible.builtin.shell:
-        chdir: "{{lookup('env', 'HOMNE')}}"
-        cmd: "curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish"
 
 
 
