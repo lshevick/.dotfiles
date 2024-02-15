@@ -14,6 +14,7 @@ Plug 'alvan/vim-closetag'
 Plug 'dense-analysis/ale'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'mbbill/undotree'
+Plug 'ap/vim-css-color'
 call plug#end()
 
 filetype plugin on
