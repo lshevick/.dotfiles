@@ -1,5 +1,10 @@
 #!/bin/bash
 
 echo 'INSTALL HERE' 
-[ -z $STOW_FOLDERS ] && echo $STOW_FOLDERS
-[-z $DOTFILES ] && echo $DOTFILES
+
+for folder in $(echo $STOW_FOLDERS | sed "s/,/ /g")
+do
+    echo "stow $folder"
+    stow -D $folder
+    stow $folder
+done
