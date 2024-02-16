@@ -5,11 +5,5 @@ setxkbmap -option caps:escape
 export XDG_CONFIG_HOME=$HOME/.config
 VIM="vim"
 
-export STOW_FOLDERS="zsh"
+export STOW_FOLDERS="debian,zsh,vim"
 
-for folder in $(echo $STOW_FOLDERS | sed "s/,/ /g")
-do
-    echo "stow $folder"
-    stow -D $folder
-    stow $folder
-done
