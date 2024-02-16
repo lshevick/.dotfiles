@@ -2,7 +2,13 @@
   become: true 
   tasks:
     - name: Install zsh
-      apt: name=zsh
+      apt:
+        pkg:
+          - zsh
+          - neofetch
+          - fzf
+          - vim
+          - nodejs
 
     - name: Change shell to zsh
       shell: chsh -s $(which zsh)
@@ -12,7 +18,7 @@
         path: /home/lshevick/.local/share/zap
       register: zap
 
-    - name: Get zsh if not installed
+    - name: Get zap if not installed
       shell: zsh <(curl -s https://raw.githubusercontent.com/zap-zsh/zap/master/install.zsh) --branch release-v1 
       when: zap.stat.exists == false
       become_user: lshevick
