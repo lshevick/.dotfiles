@@ -22,7 +22,7 @@ plug "zsh-users/zsh-syntax-highlighting" "122dc46"
 
 # Example install of a theme
 plug "zap-zsh/zap-prompt"
-
+export PS1="%{%F{198}%}%n%{%F{35}%}@%{%F{166}%}%m %{%F{29}%}%1~ %{%f%}$ "
 # Example install of a zsh completion
 plug "esc/conda-zsh-completion"
 
