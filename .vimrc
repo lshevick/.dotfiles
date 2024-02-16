@@ -32,7 +32,7 @@ let g:sonokai_style = 'espresso'
 let g:sonokai_better_performance = 1
 let g:airline_theme = 'sonokai'
 colorscheme sonokai
-"autocmd ColorScheme * hi Normal guibg=NONE ctermbg=NONE
+autocmd ColorScheme * hi Normal guibg=NONE ctermbg=NONE
 
 
 set wildmenu

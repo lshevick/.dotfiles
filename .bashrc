@@ -40,6 +40,9 @@ case "$TERM" in
     xterm-color|*-256color) color_prompt=yes;;
 esac
 
+# set $EDITOR
+[ -z $EDITOR ] && EDITOR=vim
+
 # uncomment for a colored prompt, if the terminal has the capability; turned
 # off by default to not distract the user: the focus in a terminal window
 # should be on the output of commands, not on the prompt
@@ -92,7 +95,6 @@ fi
 alias ll='ls -l'
 alias la='ls -A'
 alias l='ls -CF'
-alias vim='vim.tiny'
 alias c='clear'
 
 # Alias definitions.
@@ -116,6 +118,5 @@ if ! shopt -oq posix; then
 fi
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 setxkbmap -option "caps:escape"
-fish
 
 

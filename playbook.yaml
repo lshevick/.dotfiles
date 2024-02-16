@@ -8,25 +8,13 @@
         name:
           - git
           - neofetch
-          - fish
+          - zsh 
           - stow
           - fzf
           - vim
           - nodejs
           - curl
         state: present
-
-    - name: get omf 
-      ansible.builtin.git:
-        repo: 'https://github.com/oh-my-fish/oh-my-fish.git'
-        dest: "{{lookup('env', 'HOME')}}/.local/share/git/oh-my-fish"
-
-    - name: install omf
-      become: true
-      ansible.builtin.shell:
-        cmd: "bin/install --offline --noninteractive --yes"
-        executable: "/usr/bin/fish"
-        chdir: "{{lookup('env', 'HOME')}}/.local/share/git/oh-my-fish"
 
     - name: clone dotfiles
       ansible.builtin.git:
