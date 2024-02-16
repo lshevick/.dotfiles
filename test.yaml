@@ -1,11 +1,24 @@
 - hosts: localhost 
   tasks:
+    - name: Install zsh
+      apt: name=zsh
+
+    - name: Change shell to zsh
+      shell: chsh -s $(which zsh)
+        
     - name: Check zap install
       stat:
         path: /home/lshevick/.local/share/zap
       register: zap
 
     - name: Get zsh if not installed
-      shell: echo 'not installed'
+      shell: zsh <(curl -s https://raw.githubusercontent.com/zap-zsh/zap/master/install.zsh) --branch release-v1 
       when: zap.stat.exists == false
       become_user: lshevick
+    
+    - name: Install stow
+      apt: name=stow
+
+    - name: Stow .dotfiles
+      shell: cd $HOME/.dotfiles && ./install
+
