@@ -26,7 +26,6 @@
 
     - name: Remove silly zap defaults
       shell: rm .zshrc*
-      when: zap.stat.exists == false
       become_user: lshevick
     
     - name: Stow .dotfiles
