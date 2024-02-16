@@ -1,0 +1,11 @@
+- hosts: localhost 
+  tasks:
+    - name: Check zap install
+      stat:
+        path: /home/lshevick/.local/share/zap
+      register: zap
+
+    - name: Get zsh if not installed
+      shell: echo 'not installed'
+      when: zap.stat.exists == false
+      become_user: lshevick
