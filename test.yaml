@@ -12,7 +12,7 @@
           - stow
 
     - name: Change shell to zsh
-      shell: chsh -s $(which zsh) && zsh
+      shell: chsh -s $(which zsh) 
         
     - name: Check zap install
       stat:
@@ -25,7 +25,7 @@
       become_user: lshevick
 
     - name: Remove silly zap defaults
-      shell: rm .zshrc*
+      shell: zsh && rm .zshrc*
       become_user: lshevick
     
     - name: Stow .dotfiles
