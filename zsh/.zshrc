@@ -1,5 +1,5 @@
 source $HOME/.zprofile
-
+source $HOME/.zsh_aliases
 # Set up the prompt
 [ -f "$HOME/.local/share/zap/zap.zsh" ] && source "$HOME/.local/share/zap/zap.zsh"
 

@@ -1,0 +1,5 @@
+alias ga="git add ."
+alias gs="git status"
+alias gp="git push"
+alias ll="ls -la"
+
