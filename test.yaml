@@ -28,4 +28,5 @@
 
     - name: Stow .dotfiles
       shell: cd $HOME/.dotfiles && ./install
+      become_user: lshevick
 
