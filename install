@@ -1,5 +1,5 @@
 #!/bin/bash
 
 echo 'INSTALL HERE' 
-[[ -z $STOW_FOLDERS ]] && echo $STOW_FOLDERS
-[[-z $DOTFILES ]] && echo $DOTFILES
+[ -z $STOW_FOLDERS ] && echo $STOW_FOLDERS
+[-z $DOTFILES ] && echo $DOTFILES

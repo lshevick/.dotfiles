@@ -19,7 +19,7 @@
       register: zap
 
     - name: Get zap if not installed
-      shell: zsh <(curl -s https://raw.githubusercontent.com/zap-zsh/zap/master/install.zsh) --branch release-v1 
+      shell: zsh && <(curl -s https://raw.githubusercontent.com/zap-zsh/zap/master/install.zsh) --branch release-v1 
       when: zap.stat.exists == false
         #become_user: lshevick
     
