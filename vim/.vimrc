@@ -19,6 +19,7 @@ call plug#end()
 
 filetype plugin on
 set t_Co=256
+set re=1
 set termguicolors
 set number
 set cursorline
@@ -32,7 +33,7 @@ let g:sonokai_style = 'espresso'
 let g:sonokai_better_performance = 1
 let g:airline_theme = 'sonokai'
 colorscheme sonokai
-autocmd ColorScheme * hi Normal guibg=NONE ctermbg=NONE
+"autocmd ColorScheme * hi Normal guibg=NONE ctermbg=NONE
 
 
 set wildmenu
@@ -58,11 +59,15 @@ nnoremap <silent> <leader>b :Git blame<CR>
 nnoremap <silent> <leader>j :ALENext<CR>
 nnoremap <silent> <leader>k :ALEPrevious<CR>
 nnoremap <silent> <c-c> :set hlsearch!<CR>
-nnoremap S :%s//g<Left><Left>
+nnoremap S :%s/\<<C-r><C-w>\>/<C-r><C-w>/g<Left><Left>
+
 nnoremap <leader>u :UndotreeToggle<CR>
 inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
 inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 inoremap <silent><expr> <c-@> coc#refresh()
+xnoremap <silent> <leader>p \"dP
+vnoremap J :m '<+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
 " Go to tab by number
 noremap <leader>1 1gt
 noremap <leader>2 2gt
