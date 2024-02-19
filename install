@@ -1,7 +1,8 @@
 #!/bin/sh
 
-echo 'INSTALL HERE' 
-STOW_FOLDERS="debian,vim,zsh"
+[ -z "$STOW_FOLDERS" ] || STOW_FOLDERS="debian,vim,zsh";
+
+cd ~; zsh; rm .bashrc .zshrc; cd .dotfiles;
 
 for folder in $(echo $STOW_FOLDERS | sed "s/,/ /g")
 do
