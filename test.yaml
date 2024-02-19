@@ -23,10 +23,6 @@
       shell: curl -L https://raw.githubusercontent.com/zap-zsh/zap/master/install.zsh > ~/.zapinstall && chmod +x ~/.zapinstall && ~/.zapinstall
       when: zap.stat.exists == false
       become_user: lshevick
-
-    - name: Remove silly zap defaults
-      shell: zsh && rm ~/.zshrc*
-      become_user: lshevick
     
     - name: Stow .dotfiles
       shell: cd $HOME/.dotfiles && ./install

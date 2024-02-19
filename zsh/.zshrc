@@ -1,6 +1,5 @@
 source $HOME/.zprofile
 source $HOME/.zsh_aliases
-# Set up the prompt
 [ -f "$HOME/.local/share/zap/zap.zsh" ] && source "$HOME/.local/share/zap/zap.zsh"
 
 #autoload -Uz promptinit
@@ -20,9 +19,11 @@ plug "zsh-users/zsh-autosuggestions"
 # Example install of a plugin pinned to specifc commit or branch, just pass the git reference
 plug "zsh-users/zsh-syntax-highlighting" "122dc46"
 
-# Example install of a theme
-plug "zap-zsh/zap-prompt"
-export PS1="%{%F{198}%}%n%{%F{35}%}@%{%F{166}%}%m %{%F{29}%}%1~ %{%f%}$ "
+#spaceship prompt
+plug "spaceship-prompt/spaceship-prompt"
+
+# export PS1="%{%F{198}%}%n%{%F{35}%}@%{%F{166}%}%m %{%F{29}%}%1~ %{%f%}$ "
+
 # Example install of a zsh completion
 plug "esc/conda-zsh-completion"
 
