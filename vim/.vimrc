@@ -3,18 +3,19 @@ source $VIMRUNTIME/defaults.vim
 call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
-Plug 'airblade/vim-current-search-match'
+Plug 'tpope/vim-commentary'
 Plug 'airblade/vim-gitgutter'
 Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do':'./install --all'}
 Plug 'vim-airline/vim-airline'
 Plug 'sainnhe/sonokai'
-Plug 'raimondi/delimitmate'
+Plug 'LunarWatcher/auto-pairs'
 Plug 'sheerun/vim-polyglot'
 Plug 'alvan/vim-closetag'
 Plug 'dense-analysis/ale'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'mbbill/undotree'
 Plug 'ap/vim-css-color'
+Plug 'markonm/traces.vim'
 call plug#end()
 
 filetype plugin on
@@ -33,7 +34,7 @@ let g:sonokai_style = 'espresso'
 let g:sonokai_better_performance = 1
 let g:airline_theme = 'sonokai'
 colorscheme sonokai
-"autocmd ColorScheme * hi Normal guibg=NONE ctermbg=NONE
+autocmd ColorScheme * hi Normal guibg=NONE ctermbg=NONE
 
 
 set wildmenu
@@ -46,6 +47,8 @@ let g:netrw_liststyle = 3
 let g:netrw_browse_split = 0
 let g:netrw_winsize = 20
 
+let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.php'
+
 let mapleader=" "
 
 map <C-h> <C-w>h
@@ -55,10 +58,12 @@ map <C-l> <C-w>l
 tnoremap <Esc> <C-w>:q!<CR>
 nnoremap <silent> <leader>e :Lexplore!<CR>
 nnoremap <silent> <leader>s :FZF<CR>
+nnoremap <silent> <leader>t :term<CR>
 nnoremap <silent> <leader>b :Git blame<CR>
 nnoremap <silent> <leader>j :ALENext<CR>
 nnoremap <silent> <leader>k :ALEPrevious<CR>
-nnoremap <silent> <c-c> :set hlsearch!<CR>
+nnoremap <silent> <leader>c :set hlsearch!<CR>
+nnoremap <silent> <leader>w :w<CR>
 nnoremap S :%s/\<<C-r><C-w>\>/<C-r><C-w>/g<Left><Left>
 
 nnoremap <leader>u :UndotreeToggle<CR>
