@@ -17,7 +17,7 @@ plug "zap-zsh/supercharge"
 plug "zsh-users/zsh-autosuggestions"
 
 # Example install of a plugin pinned to specifc commit or branch, just pass the git reference
-plug "zsh-users/zsh-syntax-highlighting" "122dc46"
+plug "zsh-users/zsh-syntax-highlighting"
 
 #spaceship prompt
 plug "spaceship-prompt/spaceship-prompt"
@@ -53,3 +53,7 @@ zstyle ':completion:*' verbose true
 
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# powershell.exe -File C:\\Users\\LeviShevick\\kmonad.ps1 
