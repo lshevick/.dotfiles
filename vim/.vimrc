@@ -86,6 +86,7 @@ nnoremap <silent> <leader>t :term<CR>
 nnoremap <silent> <leader>~ :so ~/.vimrc<CR>
 nnoremap <silent> <leader>r :exec "set rnu!"<CR>
 nnoremap <silent> <leader>s :GFiles<CR>
+nnoremap <silent> <leader>f :Files<CR>
 nnoremap <silent> <leader>b :Git blame<CR>
 nnoremap <silent> <leader>c :set hlsearch!<CR>
 nnoremap <silent> <leader>w :w<CR>
