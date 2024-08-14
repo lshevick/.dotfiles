@@ -89,7 +89,8 @@ nnoremap <silent> <leader>s :GFiles<CR>
 nnoremap <silent> <leader>f :Files<CR>
 nnoremap <silent> <leader>b :Git blame<CR>
 nnoremap <silent> <leader>c :set hlsearch!<CR>
-nnoremap <silent> <leader>w :w<CR>
+nnoremap <silent> <leader>ws :w \| call SaveStage()<CR>
+nnoremap <silent> <leader>wl :w \| call SaveLocal()<CR>
 nnoremap <silent> <C-g> :Ag<CR>
 command! W write
 command! Q quit
@@ -125,3 +126,40 @@ command! -bang -nargs=* Ag
 \ call fzf#vim#ag(<q-args>,
 \                 fzf#vim#with_preview('right:60%'),
 \                 <bang>0)
+
+def SaveStage()
+    var remote = "lshevick@192.168.109.21"
+    var local_file = expand('%:p')
+    var local_dir = expand('%:p:h')
+    var remote_file = ''
+
+    if getcwd() =~ 'Admin'
+        remote_file = substitute(local_file, getcwd(), '/var/www/stage/IncentRev-Admin', '')
+    elseif getcwd() =~ 'Web' 
+        remote_file = substitute(local_file, getcwd(), '/var/www/stage/IncentRev-Web', '')
+    else
+        echo 'Not in correct dir'
+    endif
+
+    var scp_command = 'scp ' .. shellescape(local_file) .. ' ' .. remote .. ':' .. remote_file
+    call system(scp_command)
+enddef
+
+def SaveLocal()
+    var remote = "lshevick@192.168.1.14"
+    var local_file = expand('%:p')
+    var local_dir = expand('%:p:h')
+    var remote_file = ''
+
+    if getcwd() =~ 'Admin'
+        remote_file = substitute(local_file, getcwd(), '/var/www/IncentRev-Admin-01', '')
+    elseif getcwd() =~ 'Web' 
+        remote_file = substitute(local_file, getcwd(), '/var/www/IncentRev-Web-01', '')
+    else
+        echo 'Not in correct dir'
+    endif
+
+    var scp_command = 'scp ' .. shellescape(local_file) .. ' ' .. remote .. ':' .. remote_file
+    call system(scp_command)
+enddef
+
