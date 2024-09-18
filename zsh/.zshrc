@@ -32,6 +32,15 @@ HISTSIZE=1000
 SAVEHIST=1000
 HISTFILE=~/.zsh_history
 
+autoload -U up-line-or-beginning-search
+autoload -U down-line-or-beginning-search
+
+# Up arrow
+bindkey "${terminfo[kcuu1]}" up-line-or-beginning-search
+
+# Down arrow
+bindkey "${terminfo[kcud1]}" down-line-or-beginning-search
+
 # Use modern completion system
 autoload -Uz compinit
 compinit
@@ -54,6 +63,7 @@ zstyle ':completion:*' verbose true
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
+export PATH="$PATH:/opt/nvim-linux64/bin"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # powershell.exe -File C:\\Users\\LeviShevick\\kmonad.ps1 

@@ -84,13 +84,14 @@ tnoremap <Esc> <C-w>:q!<CR>
 nnoremap <silent> <leader>e :Lexplore!<CR>
 nnoremap <silent> <leader>t :term<CR>
 nnoremap <silent> <leader>~ :so ~/.vimrc<CR>
-nnoremap <silent> <leader>r :exec "set rnu!"<CR>
+" nnoremap <silent> <leader>r :exec "set rnu!"<CR>
 nnoremap <silent> <leader>s :GFiles<CR>
 nnoremap <silent> <leader>f :Files<CR>
 nnoremap <silent> <leader>b :Git blame<CR>
 nnoremap <silent> <leader>c :set hlsearch!<CR>
-nnoremap <silent> <leader>ws :w \| call SaveStage()<CR>
-nnoremap <silent> <leader>wl :w \| call SaveLocal()<CR>
+nnoremap <silent> <leader>g :w \| call SaveStage()<CR>
+nnoremap <silent> <leader>l :w \| call SaveLocal()<CR>
+nnoremap <silent> <leader>w :w<CR>
 nnoremap <silent> <C-g> :Ag<CR>
 command! W write
 command! Q quit
