@@ -4,4 +4,3 @@ alias gp="git push"
 alias ll="ls -la"
 alias asdf="setxkbmap us -variant colemak_dh"
 alias arst="setxkbmap us"
-

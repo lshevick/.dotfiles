@@ -1,6 +1,7 @@
 source $HOME/.zprofile
 source $HOME/.zsh_aliases
 [ -f "$HOME/.local/share/zap/zap.zsh" ] && source "$HOME/.local/share/zap/zap.zsh"
+export PATH="$PATH:/opt/nvim-linux64/bin"
 
 #autoload -Uz promptinit
 #promptinit
@@ -53,3 +54,5 @@ zstyle ':completion:*' verbose true
 
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
