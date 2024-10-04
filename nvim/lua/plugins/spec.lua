@@ -9,17 +9,47 @@ return {
 			vim.g.sonokai_style = "espresso"
 			vim.g.sonokai_enable_italic = 1
 			vim.g.sonokai_better_performance = 1
-			vim.cmd.colorscheme('sonokai')
+			-- vim.cmd.colorscheme('sonokai')
 		end
 	},
-	-- {
-	-- 	"ellisonleao/gruvbox.nvim",
-	-- 	lazy = false,
-	-- 	priority = 1000,
-	-- 	config = function()
-	-- 		vim.cmd.colorscheme('gruvbox')
-	-- 	end
-	-- },
+    {
+		'https://gitlab.com/__tpb/monokai-pro.nvim',
+		lazy = true,
+		config = function()
+            vim.g.monokaipro_filter = "ristretto"
+            vim.g.monokaipro_italic_functions = true
+            vim.g.monokaipro_flat_term = true
+        end
+
+    },
+	{
+		"sainnhe/gruvbox-material",
+		lazy = false,
+		priority = 1000,
+        config = function ()
+            vim.g.gruvbox_material_enable_italic = true
+            vim.g.gruvbox_material_foreground = 'original'
+            vim.g.gruvbox_material_foreground = 'medium'
+            vim.cmd.colorscheme('gruvbox-material')
+        end
+	},
+	{
+		"kepano/flexoki-neovim",
+		lazy = true,
+        name = 'flexoki'
+	},
+    {
+        "rebelot/kanagawa.nvim",
+        lazy = true
+    },
+    {
+        "ribru17/bamboo.nvim",
+        lazy = true,
+    },
+    {
+        "savq/melange-nvim",
+        lazy = true
+    },
 	{
 		"nvim-lua/plenary.nvim",
 		lazy = false,
@@ -78,8 +108,11 @@ return {
 		'VonHeikemen/lsp-zero.nvim', branch = 'v4.x'
 	},
 	{
-		'neovim/nvim-lspconfig'
+		'neovim/nvim-lspconfig',
 	},
+        {
+            'j-hui/fidget.nvim'
+        },
 	{
 		'hrsh7th/cmp-nvim-lsp'
 	},
@@ -109,7 +142,7 @@ return {
     -- },
     {
        "m4xshen/autoclose.nvim",
-       lazy = false,
+       lazy = false
     },
     {
         "folke/trouble.nvim",
@@ -130,7 +163,7 @@ return {
         lazy = false,
     },
     {
-        "rafamadriz/friendly-snippets" 
+        "rafamadriz/friendly-snippets"
     },
     {
         "saadparwaiz1/cmp_luasnip",

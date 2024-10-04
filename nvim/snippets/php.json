@@ -1,0 +1,22 @@
+{
+	"php tag": {
+		"prefix": "php",
+		"body": [
+			"<?php", 
+             "$0",   
+            "?>"
+		]
+	},
+
+	"php print_r": {
+		"prefix":  "print",
+		"body": ["<?php", "print_r($0);", "?>"],
+		"description": "php print_r inside html."
+	},
+
+    "quick echo": {
+        "prefix": "echo",
+        "body": ["<?= $0 ?>"],
+        "description": "short echo syntax."
+    }
+}

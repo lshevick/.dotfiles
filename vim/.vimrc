@@ -18,6 +18,7 @@ Plug 'mbbill/undotree'
 Plug 'ap/vim-css-color'
 Plug 'markonm/traces.vim'
 Plug 'mattn/emmet-vim'
+Plug 'phpactor/phpactor', {'for': 'php', 'tag': '*', 'do': 'composer install --no-dev -o'}
 call plug#end()
 
 filetype plugin on
@@ -30,6 +31,8 @@ set cursorline
 set rtp+=~/.fzf
 "mucomplete init
 set completeopt+=menuone,noselect
+let g:mucomplete#enable_auto_at_startup = 1
+let g:mucomplete#completion_delay = 1
 set shortmess+=c
 set belloff+=ctrlg
 
