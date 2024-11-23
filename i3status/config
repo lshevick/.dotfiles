@@ -1,0 +1,64 @@
+general {
+	colors = true
+	color_good = "#a6cd77"
+	color_degraded = "#f0c66f"
+	color_bad = "#f86882"
+	interval = 1
+	separator = "|"
+}
+
+
+order += "wireless wlan0"
+order += "ethernet eth0"
+order += "memory"
+order += "cpu_usage"
+order += "cpu_temperature 0"
+order += "volume master"
+order += "tztime local"
+order += "battery 0"
+
+wireless wlan0 {
+	format_up = "W: (%quality at %essid, %bitrate) %ip"
+	format_down = "W: down"
+}
+
+ethernet eth0 {
+	format_up = "E: %ip (%speed)"
+	format_down = "E: down"
+}
+
+battery 0 {
+        format = "%status %percentage %remaining %emptytime"
+        format_down = "No battery"
+        status_chr = "⚡ CHR"
+        status_bat = "🔋 BAT"
+        status_unk = "? UNK"
+        status_full = "☻ FULL"
+        path = "/sys/class/power_supply/BAT%d/uevent"
+        low_threshold = 20
+        integer_battery_capacity = true
+}
+
+memory {
+  memory_used_method = classical
+  format="Memory: %used/%total"
+}
+
+cpu_usage {
+  format="cpu: %usage"
+}
+
+cpu_temperature 0 {
+  format="temp: %degrees C"
+  path = "/sys/bus/acpi/devices/LNXTHERM:00/thermal_zone/temp"
+}
+
+tztime local {
+        format = "%m-%d-%Y %H:%M"
+}
+
+volume master {
+        format = "V: %volume"
+        format_muted = "V: muted (%volume)"
+        device ="pulse:alsa_output.pci-0000_00_1b.0.analog-stereo"
+}
