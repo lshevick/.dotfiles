@@ -1,7 +1,7 @@
 return {
 	{
 		'sainnhe/sonokai',
-		lazy = false,
+		lazy = true,
 		priority = 1000,
 		config = function()
 			-- Optionally configure and load the colorscheme
@@ -110,9 +110,10 @@ return {
 	{
 		'neovim/nvim-lspconfig',
 	},
-        {
-            'j-hui/fidget.nvim'
-        },
+    {
+        'j-hui/fidget.nvim',
+        opts = {}
+    },
 	{
 		'hrsh7th/cmp-nvim-lsp'
 	},
@@ -125,16 +126,16 @@ return {
 	{
 		"williamboman/mason.nvim",
 		"williamboman/mason-lspconfig.nvim",
-		"neovim/nvim-lspconfig",
 	},
+	-- {
+	-- 	"theprimeagen/harpoon",
+	-- 	lazy = false,
+        -- opts = {}
+	-- },
 	{
-		"theprimeagen/harpoon",
+		"brenoprata10/nvim-highlight-colors",
 		lazy = false,
         opts = {}
-	},
-	{
-		"ap/vim-css-color",
-		lazy = false,
 	},
     -- {
     --    "mattn/emmet-vim",
@@ -142,7 +143,13 @@ return {
     -- },
     {
        "m4xshen/autoclose.nvim",
-       lazy = false
+       lazy = false,
+       opts = {}
+    },
+    {
+        "windwp/nvim-ts-autotag",
+        lazy = false,
+        opts = {}
     },
     {
         "folke/trouble.nvim",
@@ -152,18 +159,12 @@ return {
     },
         {
             "L3MON4D3/LuaSnip",
+            lazy = false,
             -- follow latest release.
             version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
             -- install jsregexp (optional!).
-            build = "make install_jsregexp",
             dependencies = { "rafamadriz/friendly-snippets" },
-    },
-    {
-        "saadparwaiz1/cmp_luasnip",
-        lazy = false,
-    },
-    {
-        "rafamadriz/friendly-snippets"
+            build = "make install_jsregexp",
     },
     {
         "saadparwaiz1/cmp_luasnip",

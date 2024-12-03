@@ -18,5 +18,16 @@
         "prefix": "echo",
         "body": ["<?= $0 ?>"],
         "description": "short echo syntax."
-    }
+    },
+
+	"php try/catch": {
+		"prefix": "trca",
+		"body": [
+			"try {", 
+             "$0",   
+            "} catch (\Exception $e) {",
+            "   Log::info($e->getMessage() . ' at line ' . $e->getLine() . ' in ' . $e->getFile());",
+            "}"
+		]
+	}
 }

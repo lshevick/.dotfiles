@@ -12,10 +12,12 @@ end
 
 function SaveStage()
     local local_file = vim.fn.expand("%:p")
+    local filename = vim.fn.expand("%")
     local local_dir = vim.fn.getcwd()
     local remote = "lshevick@192.168.109.21"
     local admin_remote_base_dir = "/var/www/stage/IncentRev-Admin"
     local web_remote_base_dir = "/var/www/stage/IncentRev-Web"
+    local hoh_remote_base_dir = "/var/www/halfoffhelp"
     local remote_file = ''
     local_dir = escape_pattern(local_dir)
 
@@ -23,17 +25,19 @@ function SaveStage()
         remote_file = string.gsub(local_file, local_dir, admin_remote_base_dir)
     elseif string.find(local_dir, "Web") then
         remote_file = string.gsub(local_file, local_dir, web_remote_base_dir)
+    elseif string.find(local_dir, "halfoffhelp") then
+        remote_file = string.gsub(local_file, local_dir, hoh_remote_base_dir)
     else
         print('Not in correct directory.')
         return
     end
-
-    -- Construct the SCP command
+--    Construct the SCP command
     local scp_command = string.format("scp %s %s:%s", vim.fn.shellescape(local_file), remote, remote_file)
 
     -- Execute the SCP command
-    os.execute(scp_command)
-    print('File Uploaded')
+
+        os.execute(scp_command)
+        print('File Uploaded')
 end
 
 function SaveLocal()
@@ -64,3 +68,9 @@ end
 
 vim.keymap.set("n", "<leader>g", "<cmd>silent :w | lua SaveStage()<CR>")
 vim.keymap.set("n", "<leader>l", "<cmd>silent :w | lua SaveLocal()<CR>")
+vim.keymap.set("n", "S", ":%s/<C-r><C-w>/<C-r><C-w>/g<Left><Left>")
+
+vim.api.nvim_create_autocmd({"TermOpen", "WinEnter"}, {
+    pattern = "term://*",
+    command = "startinsert",
+})

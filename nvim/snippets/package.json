@@ -4,12 +4,6 @@
 		"snippets": [
 			{
 				"language": [
-					"all"
-				],
-				"path": "./snippets/all.json"
-			},
-			{
-				"language": [
 					"php"
 				],
 				"path": "./php.json"

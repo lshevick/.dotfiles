@@ -15,12 +15,9 @@ require'nvim-treesitter.configs'.setup {
 				"markdown",
 				"markdown_inline",
 				"printf",
-				"python",
 				"query",
 				"regex",
 				"toml",
-				"tsx",
-				"typescript",
 				"vim",
 				"vimdoc",
 				"xml",
@@ -52,6 +49,11 @@ require'nvim-treesitter.configs'.setup {
       enable = false
   }
 }
+require('nvim-ts-autotag').setup({
+    aliases = {
+        ["blade"] = "html"
+    }
+})
 local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
 parser_config.blade = {
     install_info = {

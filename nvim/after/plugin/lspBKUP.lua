@@ -1,8 +1,8 @@
 local lsp_zero = require('lsp-zero')
+local luasnip = require ('luasnip')
 local cmp = require('cmp')
-require('luasnip.loaders.from_vscode').lazy_load()
-require('luasnip.loaders.from_vscode').load({paths = '/~.config/nvim/snippets'})
-require('luasnip').filetype_extend("blade", {'html', 'css', 'javascript'})
+require('luasnip.loaders.from_vscode').lazy_load({paths = {"~/.config/nvim/snippets"}})
+luasnip.filetype_extend("php", {"blade"})
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 -- lsp_attach is where you enable features that only work
@@ -73,7 +73,7 @@ cmp.setup({
     ),
     snippet = {
         expand = function(args)
-            require('luasnip').lsp_expand(args.body)
+            vim.snippet.expand(args.body)
         end,
     },
     formatting = {
@@ -103,7 +103,6 @@ cmp.setup({
           c = cmp.mapping.close(),
       },
    ['<CR>'] = cmp.mapping(function(fallback)
-       local luasnip = require('luasnip')
         if cmp.visible() then
             if luasnip.expandable() then
                 luasnip.expand()
@@ -118,22 +117,16 @@ cmp.setup({
     end),
 
     ["<Tab>"] = cmp.mapping(function(fallback)
-         local luasnip = require('luasnip')
-      local col = vim.fn.col('.') - 1
-
       if cmp.visible() then
-        cmp.select_next_item({behavior = 'select'})
-      elseif luasnip.expand_or_locally_jumpable() then
-        luasnip.expand_or_jump()
-      elseif col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') then
-        fallback()
+        cmp.select_next_item()
+      elseif luasnip.locally_jumpable(1) then
+        luasnip.jump(1)
       else
-        cmp.complete()
+        fallback()
       end
     end, { "i", "s" }),
 
     ["<S-Tab>"] = cmp.mapping(function(fallback)
-       local luasnip = require('luasnip')
       if cmp.visible() then
         cmp.select_prev_item()
       elseif luasnip.locally_jumpable(-1) then
