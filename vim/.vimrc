@@ -1,25 +1,4 @@
 source $VIMRUNTIME/defaults.vim
-"Plug section
-call plug#begin('~/.vim/plugged')
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-commentary'
-Plug 'airblade/vim-gitgutter'
-Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do':'./install --all'}
-Plug 'junegunn/fzf.vim'
-Plug 'vim-airline/vim-airline'
-Plug 'sainnhe/sonokai'
-Plug 'LunarWatcher/auto-pairs'
-Plug 'sheerun/vim-polyglot'
-Plug 'alvan/vim-closetag'
-Plug 'dense-analysis/ale'
-Plug 'lifepillar/vim-mucomplete'
-Plug 'mbbill/undotree'
-Plug 'ap/vim-css-color'
-Plug 'markonm/traces.vim'
-Plug 'mattn/emmet-vim'
-Plug 'phpactor/phpactor', {'for': 'php', 'tag': '*', 'do': 'composer install --no-dev -o'}
-call plug#end()
 
 filetype plugin on
 set t_Co=256
@@ -44,12 +23,6 @@ let mapleader=" "
 if has('termguicolors')
 	set termguicolors
 endif
-
-let g:sonokai_style = 'espresso'
-let g:sonokai_better_performance = 1
-let g:airline_theme = 'sonokai'
-colorscheme sonokai
-"autocmd ColorScheme * hi Normal guibg=NONE ctermbg=NONE
 
 
 set wildmenu

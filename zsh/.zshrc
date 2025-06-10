@@ -67,3 +67,7 @@ export PATH="$PATH:/opt/nvim-linux64/bin"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # powershell.exe -File C:\\Users\\LeviShevick\\kmonad.ps1 
+
+export NVM_DIR="$HOME/.config/nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
