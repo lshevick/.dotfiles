@@ -63,7 +63,7 @@ zstyle ':completion:*' verbose true
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
-export PATH="$PATH:/opt/nvim-linux64/bin"
+export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # powershell.exe -File C:\\Users\\LeviShevick\\kmonad.ps1 
