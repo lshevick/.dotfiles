@@ -43,9 +43,9 @@ end
 function SaveLocal()
     local local_file = vim.fn.expand("%:p")
     local local_dir = vim.fn.getcwd()
-    local remote = "lshevick@192.168.1.14"
+    local remote = "lshevick@192.168.1.15"
     local admin_remote_base_dir = "/var/www/IncentRev-Admin-01"
-    local web_remote_base_dir = "/var/www/IncentRev-Web-01"
+    local web_remote_base_dir = "/var/www/IncentRev-Web"
     local remote_file = ''
     local_dir = escape_pattern(local_dir)
 

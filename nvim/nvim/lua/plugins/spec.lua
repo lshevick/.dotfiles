@@ -55,8 +55,7 @@ return {
 		lazy = false,
 	},
 	{
-		'nvim-telescope/telescope.nvim', tag = '0.1.8',
-		-- or                              , branch = '0.1.x',
+		'nvim-telescope/telescope.nvim',
 		dependencies = { 'nvim-lua/plenary.nvim' }
 	},
 	{
@@ -101,6 +100,7 @@ return {
 	},
 	{
 		"nvim-treesitter/nvim-treesitter",
+        branch = 'main',
 		version = false, -- last release is way too old and doesn't work on Windows
 		build = ":TSUpdate",
 	},

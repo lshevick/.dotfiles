@@ -6,7 +6,6 @@ alias gpl="git pull"
 alias gl="git log --graph --oneline"
 alias gvl="git log --graph"
 alias ll="exa -la --icons"
-alias grep="grep -iarn -C3 --color=always"
 alias admin="cd ~/documents/git/IncentRev-Admin"
 alias nweb="cd ~/documents/git/IncentRev-Web-Laravel"
 alias blog="cd ~/documents/shevick-blog"
@@ -23,3 +22,4 @@ alias vi="vim"
 alias x="exit"
 alias inv='nvim $(fzf -m --preview="cat {}")'
 alias checkmem='wsl.exe --system -d $WSL_DISTRO_NAME top'
+alias vpn='sudo openvpn --config /etc/openvpn/office-UDP4-1196-lshevick-config.ovpn'
