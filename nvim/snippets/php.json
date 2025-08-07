@@ -3,30 +3,44 @@
 		"prefix": "php",
 		"body": [
 			"<?php", 
-             "$0",   
+             "$1",   
             "?>"
 		]
 	},
 
 	"php print_r": {
 		"prefix":  "print",
-		"body": ["<?php", "print_r($0);", "?>"],
-		"description": "php print_r inside html."
+		"body": ["<?php", "print_r($1);", "?>"]
 	},
 
     "quick echo": {
         "prefix": "echo",
-        "body": ["<?= $0 ?>"],
-        "description": "short echo syntax."
+        "body": ["<?= $1 ?>"]
     },
+
+	"fetch inside try": {
+		"prefix": "tryfetch",
+		"body": [
+			"try {", 
+             "  const response = await fetch(url, {",
+             "      method: '',",
+             "      headers: {",
+             "      },",
+             "      body: {},",
+             "  })",   
+            "} catch (error) {",
+            "   throw new Error(`HTTP Error! status: ${error.status}`)",
+            "}"
+		]
+	},
 
 	"php try/catch": {
 		"prefix": "trca",
 		"body": [
 			"try {", 
-             "$0",   
-            "} catch (\Exception $e) {",
-            "   Log::info($e->getMessage() . ' at line ' . $e->getLine() . ' in ' . $e->getFile());",
+             "$1",   
+            "} catch (\\Exception \\$e) {",
+            "   Log::info(\\$e->getMessage() . ' at line ' . \\$e->getLine() . ' in ' . \\$e->getFile());",
             "}"
 		]
 	}
