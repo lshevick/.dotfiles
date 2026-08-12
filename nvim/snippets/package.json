@@ -1,0 +1,28 @@
+{
+	"name": "custom-snippets",
+      "engines": {
+            "vscode": "^1.11.0"
+          },
+	"contributes": {
+		"snippets": [
+			{
+				"language": [
+					"php"
+				],
+				"path": "./php.json"
+			},
+			{
+				"language": [
+					"go"
+				],
+				"path": "./go.json"
+			},
+            {
+                "language": [
+                    "javascript"
+                ],
+                "path": "./javascript.json"
+            }
+		]
+	}
+}

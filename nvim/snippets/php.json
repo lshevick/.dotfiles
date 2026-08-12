@@ -1,0 +1,30 @@
+{
+	"php tag": {
+		"prefix": "php",
+		"body": [
+			"<?php", 
+             "$1",   
+            "?>"
+		]
+	},
+
+	"php print_r": {
+		"prefix":  "print",
+		"body": ["<?php", "print_r($1);", "?>"]
+	},
+
+    "quick echo": {
+        "prefix": "echo",
+        "body": ["<?= $1 ?>"]
+    },
+	"php try/catch": {
+		"prefix": "trca",
+		"body": [
+			"try {", 
+             "$1",   
+            "} catch (\\Exception \\$e) {",
+            "   Log::info(\\$e->getMessage() . ' at line ' . \\$e->getLine() . ' in ' . \\$e->getFile());",
+            "}"
+		]
+	}
+}
